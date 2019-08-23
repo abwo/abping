@@ -90,26 +90,26 @@ class AbPing(object):
 
     def _analyze_ping_recv_data(self, recv_data):
         recv_data_tmp = [hex(val) for val in recv_data]
-        result = {}
-        # ip header
-        result['version_headerlength'] = recv_data_tmp[0]
-        result['df_field'] = recv_data_tmp[1]
-        result['total_length'] = recv_data_tmp[2:4]
-        result['ip_identification'] = recv_data_tmp[4:6]
-        result['flags'] = recv_data_tmp[6:8]
-        result['time_to_live'] = recv_data_tmp[8]
-        result['protocol'] = recv_data_tmp[9]
-        result['ip_checksum'] = recv_data_tmp[10:12]
-        result['source_ip'] = recv_data_tmp[12:16]
-        result['destination_ip'] = recv_data_tmp[16:20]
-        # icmp header
-        result['type'] = recv_data_tmp[20]
-        result['code'] = recv_data_tmp[21]
-        result['icmp_checksum'] = recv_data_tmp[22:24]
-        result['icmp_identification'] = recv_data_tmp[24:26]
-        result['sequence_number'] = recv_data_tmp[26:28]
-        # icmp data
-        result['data'] = recv_data_tmp[28:]
+        result = {
+            # ip header
+            'version_headerlength': recv_data_tmp[0],
+            'df_field': recv_data_tmp[1],
+            'total_length': recv_data_tmp[2:4],
+            'ip_identification': recv_data_tmp[4:6],
+            'flags': recv_data_tmp[6:8],
+            'time_to_live': recv_data_tmp[8],
+            'protocol': recv_data_tmp[9],
+            'ip_checksum': recv_data_tmp[10:12],
+            'source_ip': recv_data_tmp[12:16],
+            'destination_ip': recv_data_tmp[16:20],
+            # icmp packet
+            'type': recv_data_tmp[20],
+            'code': recv_data_tmp[21],
+            'icmp_checksum': recv_data_tmp[22:24],
+            'icmp_identification': recv_data_tmp[24:26],
+            'sequence_number': recv_data_tmp[26:28],
+            'data': recv_data_tmp[28:]
+        }
         result = self._calc_recv_data_result_val(result)
         return result
 
