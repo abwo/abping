@@ -203,7 +203,8 @@ None
 
 ## Requirement
 
-python 3.6 or more
+- python 3.6 or more
+- Windows users who do not use python should use abping.exe in the bin directory.
 
 ## Author
 
