@@ -1,8 +1,7 @@
 # abping
 
 Fast Ping tool. Use it in network and server management.
-Currently, the following contents are implemented,
-but please let me know if there are any other functions you would like to add.
+Since ping is executed in parallel, it is suitable for checking the network communication of multiple units.
 
 ## Installation
 
